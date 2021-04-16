@@ -1,12 +1,12 @@
 import React from "react";
-import FiltersList from "./Filters/index";
-import { filters } from "./data.js";
+import Filters from "./Filters";
+import Hotels from "./Hotels";
+import { filters, hotels } from "./data.js";
 
 var App = () => (
   <div className="App">
-    <FiltersList filters={filters} />
-
-    <FiltersList />
+    <Filters filters={filters} />
+    <Hotels hotels={hotels} />
   </div>
 );
 
