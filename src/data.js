@@ -1,39 +1,14 @@
-export var filters = [
-  {
-    id: 21,
-    name: "Free Cancellation",
-    matchCount: 307
-  },
-  {
-    id: 22,
-    name: "Breakfast Included",
-    matchCount: 175
-  },
-  {
-    id: 23,
-    name: "Bestsellers",
-    matchCount: 20
-  },
-  {
-    id: 41,
-    name: "Parking",
-    matchCount: 272
-  },
-  {
-    id: 42,
-    name: "Pets Allowed",
-    matchCount: 164
-  },
-  {
-    id: 43,
-    name: "Room Service",
-    matchCount: 170
-  },
-  {
-    id: 44,
-    name: "Fitness Center",
-    matchCount: 249
-  }
+/* Notice how we've changed the data model for filters
+to make managing the state of the selected filters and the
+conditional rendering of our hotels easier. */
+export var filterOptions = [
+  { display: "Free Cancellation", key: "hasFreeCancellation" },
+  { display: "Breakfast Included", key: "includesBreakfast" },
+  { display: "Bestsellers", key: "isBestSeller" },
+  { display: "Parking", key: "hasParking" },
+  { display: "Pets Allowed", key: "allowsPets" },
+  { display: "Room Service", key: "hasRoomService" },
+  { display: "Fitness Centre", key: "hasFitnessCenter" }
 ];
 
 export var hotels = [

@@ -1,22 +1,24 @@
 import React from "react";
 import Filter from "./Filter.js";
+import { filterOptions } from "../data.js";
 
-/* callback function
-  - renders a single filter
-  - assigns a unique `key` prop to each `Filter` component
-  - passes the `filter` argument to each `Filter` component as a prop called `filter`
-*/
-var renderFilter = (filter) => <Filter key={filter.id} filter={filter} />;
-
-/* functional component
-  - accepts `filters` data model as a prop
-  - maps over the array of filter data, calling the `renderFilter` callback function to render a `Filter` component for each item in the array
-*/
 var FiltersList = (props) => {
-  if (!props.filters) {
-    return null;
-  }
-  var filterListElements = props.filters.map(renderFilter);
+  /* notice how we've moved our callback function 
+  inside of the FiltersList function so that we can access props
+  in our definition of the renderFilter callback function */
+  var renderFilter = (filter) => {
+    // see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes to see how the .includes array method works
+    var isChecked = props.selectedFilters.includes(filter.key);
+    return (
+      <Filter
+        key={filter.key}
+        filter={filter}
+        isChecked={isChecked}
+        toggleFilter={props.toggleFilter}
+      />
+    );
+  };
+  var filterListElements = filterOptions.map(renderFilter);
   return (
     <div className="filters">
       <h5 className="filters__header">Filter By:</h5>

@@ -1,10 +1,5 @@
 import React from "react";
 
-/* functional component
-    - accepts a boolean prop `roomsRemaining`
-    - if true, renders a span element
-    - if false, doesn't render anything
-*/
 var RoomsLeft = (props) => {
   if (props.roomsRemaining < 10) {
     return (
